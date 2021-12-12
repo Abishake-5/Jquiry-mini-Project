@@ -1,6 +1,7 @@
 
 function newItem(){
 let li = $('<li></li>');
+let list = $('#list');
 let inputValue = $('#input').val();
 li.append(inputValue);
 
@@ -13,9 +14,12 @@ else{
   // list is appended if inputValue is returned 
 };
 
-	li.on("dblclick", function crossOut() {
-		li.toggleClass("strike");
-	});
+  function crossOut() {
+    li.toggleClass('strike');
+  }
+
+  li.on('dblclick', crossOut);
+
 
 
 let closeButtonElement = $('<crossOutButton></crossOutButton>');
@@ -26,6 +30,6 @@ closeButtonElement.on('click', function(){
   li.hide();
 })
 
+$('#list').sortable();
+
 }
-
-
